@@ -141,7 +141,7 @@
     $(".rounds .mdi-chevron-left").click(function() {
         $(this).parent().parent().removeClass("active");
         $(".years").addClass("active");
-        removeLastTag();
+        resetTags();
     });
 
     $(".games .mdi-chevron-left").click(function() {
