@@ -63,6 +63,11 @@
         // search();
     }
 
+    function removeLastTag(){
+        window.selectedTags = window.selectedTags.splice(0,1)
+        console.log(window.selectedTags);
+    }
+
     function search() {
         selectedTags = window.selectedTags;
         var filtered = tags.filter(function(element) {
@@ -136,13 +141,13 @@
     $(".rounds .mdi-chevron-left").click(function() {
         $(this).parent().parent().removeClass("active");
         $(".years").addClass("active");
-        resetTags();
+        removeLastTag();
     });
 
     $(".games .mdi-chevron-left").click(function() {
         $(this).parent().parent().removeClass("active");
         $(".rounds").addClass("active");
-
+        removeLastTag();
     });
 
     $(".game .mdi-chevron-left").click(function() {
