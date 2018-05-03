@@ -15,7 +15,7 @@
 </head>
 
 <body>
-    <script src="tags.js"></script>
+    <script src="data.js"></script>
     <div class="canvas">
         <div class="years active">
             <h3>Years</h3>
@@ -41,11 +41,15 @@
         <div class="game">
             <h3><i class="mdi mdi-chevron-left"></i>Game</h3>
             <div class="header"></div>
+
+            <div class="home-team-header"></div><br>
             <div class="home-team">
-                <div class="player"><i class="mdi mdi-check-circle-outline no"></i><i class="mdi mdi-check-circle sel"></i><span>Lionel Messi</span></div>
-                <div class="player"><i class="mdi mdi-check-circle-outline no"></i><i class="mdi mdi-check-circle sel"></i><span>Ebbe Sand</span></div>
-            </div>
+            <div class="player"><i class="mdi mdi-check-circle-outline no"></i><i class="mdi mdi-check-circle sel"></i><span>Lionel Messi</span></div>
+          </div>
+
+            <div class="away-team-header"></div><br>
             <div class="away-team"></div>
+
         </div>
     </div>
     <script type="text/javascript">
@@ -114,16 +118,29 @@
             }).length === selectedTags.length;
         });
         filtered.forEach(function(element) {
-            console.log(matches[element.id]);
+            match = matches[element.id];
 
-            //INSERT Chosen game here :-)
+            console.log(match);
+            $(".game > .header").append("<span>" + match.home_team + " - " + match.away_team + "</span><span>" + match.score + "</span>");
+            $(".game > .home-team-header").append('<span>' + match.home_team + '</span');
+            $(".game > .away-team-header").append('<span>' + match.away_team + '</span');
 
-            $(".game > .header").append("<span>" + matches[element.id].home_team + " - " + matches[element.id].away_team + "</span><span>" + matches[element.id].score + "</span>");
+            match.home_players.forEach(function(player){
+              $(".game > .home-team").append('<div class="player"><i class="mdi mdi-check-circle-outline no"></i><i class="mdi mdi-check-circle sel"></i><span">' + player +  "</span></div>");
+            });
 
+            match.away_players.forEach(function(player){
+              $(".game > .away-team").append('<div class="player"><i class="mdi mdi-check-circle-outline no"></i><i class="mdi mdi-check-circle sel"></i><span>' + player +  "</span></div>");
+            });
 
-
+            $(".game .player").click(function() {
+                $(this).toggleClass("selected");
+            });
         });
+    }
 
+    function selectPlayer(element){
+      $(this).toggleClass("selected");
     }
 
     $(".years > button").click(function() {
@@ -153,11 +170,6 @@
     $(".game .mdi-chevron-left").click(function() {
         $(this).parent().parent().removeClass("active");
         $(".games").addClass("active");
-
-    });
-
-    $(".game .player").click(function() {
-        $(this).toggleClass("selected");
 
     });
     </script>
