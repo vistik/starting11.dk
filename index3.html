@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Starting11</title>
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Bungee|Bungee+Inline|Bungee+Shade" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.materialdesignicons.com/2.3.54/css/materialdesignicons.min.css">
+</head>
+
+<body>
+    <script src="tags.js"></script>
+    <div class="canvas">
+        <div class="years active">
+            <h3>Years</h3>
+            <button onclick="addTag(1998)">France 1998</button>
+            <button onclick="addTag(2002)">Japan 2002</button>
+            <button onclick="addTag(2006)">Germany 2006</button>
+            <button onclick="addTag(2010)">South Africa 2010</button>
+            <button onclick="addTag(2014)">Brazil 2014</button>
+        </div>
+        <div class="rounds">
+            <h3><i class="mdi mdi-chevron-left"></i>Rounds</h3>
+            <button onclick="addTag('group')">group</button>
+            <button onclick="addTag('last-16')">last-16</button>
+            <button onclick="addTag('quarter-finals')">quarter-finals</button>
+            <button onclick="addTag('semi-finals')">semi-finals</button>
+            <button onclick="addTag('3rd-place-match')">3rd-place-match</button>
+            <button onclick="addTag('final')">final</button>
+        </div>
+        <div class="games">
+            <h3><i class="mdi mdi-chevron-left"></i>Games</h3>
+            <div class="pop-games"></div>
+        </div>
+        <div class="game">
+            <h3><i class="mdi mdi-chevron-left"></i>Game</h3>
+            <div class="header"></div>
+            <div class="home-team">
+                <div class="player"><i class="mdi mdi-check-circle-outline no"></i><i class="mdi mdi-check-circle sel"></i><span>Lionel Messi</span></div>
+                <div class="player"><i class="mdi mdi-check-circle-outline no"></i><i class="mdi mdi-check-circle sel"></i><span>Ebbe Sand</span></div>
+            </div>
+            <div class="away-team"></div>
+        </div>
+    </div>
+    <script type="text/javascript">
+    var selectedTags = [];
+
+    function resetTags() {
+        window.selectedTags = [];
+        console.log('reset');
+        $(".pop-games").empty();
+    }
+
+    function addTag(tag) {
+        window.selectedTags.push(tag);
+        console.log(window.selectedTags);
+        // search();
+    }
+
+    function search() {
+        selectedTags = window.selectedTags;
+        var filtered = tags.filter(function(element) {
+            var cats = element.tags;
+            return cats.filter(function(cat) {
+                return selectedTags.indexOf(cat) > -1;
+            }).length === selectedTags.length;
+        });
+        filtered.forEach(function(element) {
+            console.log(matches[element.id]);
+            $(".pop-games").append(matches[element.id].home_team + " - " + matches[element.id].away_team + "<br><br>")
+        });
+    }
+
+    function addGames() {
+        $(".pop-games").empty();
+        selectedTags = window.selectedTags;
+        var filtered = tags.filter(function(element) {
+            var cats = element.tags;
+            return cats.filter(function(cat) {
+                return selectedTags.indexOf(cat) > -1;
+            }).length === selectedTags.length;
+        });
+        filtered.forEach(function(element) {
+            console.log(matches[element.id]);
+            $(".pop-games").append("<button>" + matches[element.id].home_team + " - " + matches[element.id].away_team + "<span>" + matches[element.id].score + "</span></button>")
+        });
+
+        $(".pop-games > button").click(function() {
+            $(".games").removeClass("active");
+            $(".game").addClass("active");
+            playGame();
+        });
+
+    }
+
+    function playGame() {
+
+        selectedTags = window.selectedTags;
+        var filtered = tags.filter(function(element) {
+            var cats = element.tags;
+            return cats.filter(function(cat) {
+                return selectedTags.indexOf(cat) > -1;
+            }).length === selectedTags.length;
+        });
+        filtered.forEach(function(element) {
+            console.log(matches[element.id]);
+
+            $(".game > .header").append("<span>" + matches[element.id].home_team + " - " + matches[element.id].away_team + "</span><span>" + matches[element.id].score + "</span>");
+
+
+
+        });
+
+    }
+
+    $(".years > button").click(function() {
+        $(this).parent().removeClass("active");
+        $(".rounds").addClass("active");
+    });
+
+    $(".rounds > button").click(function() {
+        $(this).parent().removeClass("active");
+        $(".games").addClass("active");
+        addGames();
+    });
+
+
+    $(".rounds .mdi-chevron-left").click(function() {
+        $(this).parent().parent().removeClass("active");
+        $(".years").addClass("active");
+        resetTags();
+    });
+
+    $(".games .mdi-chevron-left").click(function() {
+        $(this).parent().parent().removeClass("active");
+        $(".rounds").addClass("active");
+
+    });
+
+    $(".game .mdi-chevron-left").click(function() {
+        $(this).parent().parent().removeClass("active");
+        $(".games").addClass("active");
+
+    });
+
+    $(".game .player").click(function() {
+        $(this).toggleClass("selected");
+
+    });
+    </script>
+</body>
+
+</html>

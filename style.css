@@ -1,0 +1,150 @@
+html {
+    box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+    box-sizing: inherit;
+    -webkit-touch-callout: none;
+    /* iOS Safari */
+    -webkit-user-select: none;
+    /* Safari */
+    -khtml-user-select: none;
+    /* Konqueror HTML */
+    -moz-user-select: none;
+    /* Firefox */
+    -ms-user-select: none;
+    /* Internet Explorer/Edge */
+    user-select: none;
+    /* Non-prefixed version, currently
+                                  supported by Chrome and Opera */
+}
+
+
+
+body,
+html {
+    font-family: 'Open Sans', sans-serif;
+    font-family: 'Bungee', cursive;
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+button {
+    border: 0;
+    display: block;
+    color: #FFF;
+    background: 	rgba(43, 203, 186,1.0);
+    width: 100%;
+    padding: 6px 12px;
+    text-transform: capitalize;
+    text-align: left;
+    font-family: 'Bungee', cursive;
+    font-weight: 400;
+    font-size: 16px;
+   /* box-shadow: 2px 2px 6px 0 rgba(0, 0, 0, 0.3); */
+    border-radius: 2px;
+    margin: 6px 0;
+}
+
+button span {
+    float: right;
+    font-size: 13px;
+}
+
+.canvas {
+    width: 100%;
+    height: 100%;
+    background: rgba(209, 216, 224,0.2);
+  
+    padding-top: 48px;
+}
+
+.canvas>div {
+    display: none;
+}
+
+.canvas>div.active {
+    display: block;
+    overflow: auto;
+    height: 100%;
+    padding: 24px;
+}
+
+.canvas>div>h3 {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    margin: 0 -24px;
+    height: 48px;
+    line-height: 48px;
+    z-index: 9;
+    font-family: 'Bungee Inline', cursive;
+    background: #0fb9b1;
+    font-size: 24px;
+    color: #fff;
+    display: block;
+    text-align: center;
+    font-weight: 400;
+    box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.3);
+}
+
+.canvas>div>h3>i {
+    position: absolute;
+    left: 12px;
+}
+
+.games>div {
+    background:
+}
+
+
+
+/* GAME */
+
+.game>.header {
+    height: 120px;
+    background: #2bcbba;
+    margin: -24px -24px 12px -24px;
+    text-align: center;
+    color: #fff;
+    font-size: 24px;
+}
+
+.game>.header span {
+    display: block;
+}
+
+.game .player {
+    display: table;
+    table-layout: fixed;
+    width: 100%;
+    background: #fff;
+    margin: 1px 0;
+}
+
+.game .player>* {
+    display: table-cell;
+    vertical-align: middle;
+    padding: 0 0 0 12px;
+    color: #0fb9b1;
+}
+
+.game .player i {
+    font-size: 24px;
+    text-align: center;
+    width: 48px;
+}
+
+.game .player i.sel,
+.game .player.selected i.no {
+    display: none;
+}
+
+.game .player i.no,
+.game .player.selected i.sel {
+    display: table-cell;
+}
