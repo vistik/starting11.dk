@@ -43,8 +43,8 @@
             <div class="header"></div>
 
             <div class="home-team-header"></div><br>
-            <div class="home-team">
-            
+            <div class="home-team"></div>
+
             <div class="away-team-header"></div><br>
             <div class="away-team"></div>
 
@@ -94,47 +94,45 @@
             }).length === selectedTags.length;
         });
         filtered.forEach(function(element) {
-            console.log(matches[element.id]);
-            $(".pop-games").append("<button>" + matches[element.id].home_team + " - " + matches[element.id].away_team + "<span>" + matches[element.id].score + "</span></button>")
+            $(".pop-games").append("<button match_id='" + element.id + "'>" + matches[element.id].home_team + " - " + matches[element.id].away_team + "<span>" + matches[element.id].score + "</span></button>")
         });
 
         $(".pop-games > button").click(function() {
             $(".games").removeClass("active");
             $(".game").addClass("active");
-            playGame();
+            match_id = this.getAttribute('match_id');
+            playGame(match_id);
         });
 
     }
 
-    function playGame() {
+    function playGame(match_id) {
 
-        selectedTags = window.selectedTags;
-        var filtered = tags.filter(function(element) {
-            var cats = element.tags;
-            return cats.filter(function(cat) {
-                return selectedTags.indexOf(cat) > -1;
-            }).length === selectedTags.length;
+        match = matches[match_id];
+        $(".game > .header").empty();
+        $(".game > .home-team").empty();
+        $(".game > .away-team").empty();
+        $(".game > .home-team-header").empty();
+        $(".game > .away-team-header").empty();
+
+        console.log("Started playing match: ", match);
+        console.log(window.selectedTags);
+        $(".game > .header").append("<span>" + match.home_team + " - " + match.away_team + "</span><span>" + match.score + "</span>");
+        $(".game > .home-team-header").append('<span>' + match.home_team + '</span');
+        $(".game > .away-team-header").append('<span>' + match.away_team + '</span');
+
+        match.home_players.forEach(function(player){
+          $(".game > .home-team").append('<div class="player"><i class="mdi mdi-check-circle-outline no"></i><i class="mdi mdi-check-circle sel"></i><span">' + player +  "</span></div>");
         });
-        filtered.forEach(function(element) {
-            match = matches[element.id];
 
-            console.log(match);
-            $(".game > .header").append("<span>" + match.home_team + " - " + match.away_team + "</span><span>" + match.score + "</span>");
-            $(".game > .home-team-header").append('<span>' + match.home_team + '</span');
-            $(".game > .away-team-header").append('<span>' + match.away_team + '</span');
-
-            match.home_players.forEach(function(player){
-              $(".game > .home-team").append('<div class="player"><i class="mdi mdi-check-circle-outline no"></i><i class="mdi mdi-check-circle sel"></i><span">' + player +  "</span></div>");
-            });
-
-            match.away_players.forEach(function(player){
-              $(".game > .away-team").append('<div class="player"><i class="mdi mdi-check-circle-outline no"></i><i class="mdi mdi-check-circle sel"></i><span>' + player +  "</span></div>");
-            });
-
-            $(".game .player").click(function() {
-                $(this).toggleClass("selected");
-            });
+        match.away_players.forEach(function(player){
+          $(".game > .away-team").append('<div class="player"><i class="mdi mdi-check-circle-outline no"></i><i class="mdi mdi-check-circle sel"></i><span>' + player +  "</span></div>");
         });
+
+        $(".game .player").click(function() {
+            $(this).toggleClass("selected");
+        });
+
     }
 
     function selectPlayer(element){
@@ -168,7 +166,6 @@
     $(".game .mdi-chevron-left").click(function() {
         $(this).parent().parent().removeClass("active");
         $(".games").addClass("active");
-
     });
     </script>
 </body>
