@@ -9,8 +9,7 @@
     <meta name="author" content="">
     <link rel="stylesheet" href="style.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Bungee|Bungee+Inline|Bungee+Shade" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Bungee|Bungee+Hairline|Bungee+Inline|Bungee+Shade" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.materialdesignicons.com/2.3.54/css/materialdesignicons.min.css">
 </head>
 
@@ -42,10 +41,10 @@
             <h3><i class="mdi mdi-chevron-left"></i>Game</h3>
             <div class="header"></div>
 
-            <div class="home-team-header"></div><br>
+            <div class="home-team-header"></div>
             <div class="home-team"></div>
 
-            <div class="away-team-header"></div><br>
+            <div class="away-team-header"></div>
             <div class="away-team"></div>
 
         </div>
@@ -94,7 +93,7 @@
             }).length === selectedTags.length;
         });
         filtered.forEach(function(element) {
-            $(".pop-games").append("<button match_id='" + element.id + "'>" + matches[element.id].home_team + " - " + matches[element.id].away_team + "<span>" + matches[element.id].score + "</span></button>")
+            $(".pop-games").append("<button match_id='" + element.id + "'><span>" + matches[element.id].home_team + " - " + matches[element.id].away_team + "</span><span>" + matches[element.id].score + "</span></button>")
         });
 
         $(".pop-games > button").click(function() {

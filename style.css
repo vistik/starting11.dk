@@ -25,41 +25,50 @@ html {
 
 body,
 html {
-    font-family: 'Open Sans', sans-serif;
-    font-family: 'Bungee', cursive;
     height: 100%;
     width: 100%;
     margin: 0;
     padding: 0;
+    font-family: 'Bungee', cursive;
 }
 
 button {
     border: 0;
     display: block;
     color: #FFF;
-    background: 	rgba(43, 203, 186,1.0);
+    background: rgba(43, 203, 186, 1.0);
     width: 100%;
-    padding: 6px 12px;
+    padding: 0 12px;
     text-transform: capitalize;
     text-align: left;
     font-family: 'Bungee', cursive;
     font-weight: 400;
-    font-size: 16px;
-   /* box-shadow: 2px 2px 6px 0 rgba(0, 0, 0, 0.3); */
-    border-radius: 2px;
+    box-shadow: 1px 1px 0px 0 #0fb9b1;
+    border-radius: 12px;
     margin: 6px 0;
+    height: 48px;
+    line-height: 48px;
+    white-space: nowrap;
 }
 
-button span {
+button span:first-of-type {
+    display: inline-block;
+    width: 200px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-size: 12px;
+}
+
+button span:last-of-type {
     float: right;
-    font-size: 13px;
+    font-size: 11px;
 }
 
 .canvas {
     width: 100%;
     height: 100%;
-    background: rgba(209, 216, 224,0.2);
-  
+    background: rgba(209, 216, 224, 0.2);
     padding-top: 48px;
 }
 
@@ -71,18 +80,17 @@ button span {
     display: block;
     overflow: auto;
     height: 100%;
-    padding: 24px;
+    padding: 12px;
 }
 
 .canvas>div>h3 {
     position: fixed;
     top: 0;
     width: 100%;
-    margin: 0 -24px;
+    margin: 0 -12px;
     height: 48px;
     line-height: 48px;
     z-index: 9;
-    font-family: 'Bungee Inline', cursive;
     background: #0fb9b1;
     font-size: 24px;
     color: #fff;
@@ -103,19 +111,31 @@ button span {
 
 
 
+
+
 /* GAME */
 
 .game>.header {
-    height: 120px;
     background: #2bcbba;
-    margin: -24px -24px 12px -24px;
+    margin: -12px;
     text-align: center;
     color: #fff;
-    font-size: 24px;
+    font-size: 16px;
+    padding: 12px;
+    font-family: 'Bungee Inline', cursive;
 }
 
 .game>.header span {
     display: block;
+}
+
+.game>.home-team-header,
+.game>.away-team-header {
+    display: block;
+    padding: 24px 0 6px 0;
+    font-family: 'Bungee', cursive;
+    opacity: 0.5;
+    font-size: 11px;
 }
 
 .game .player {
@@ -123,7 +143,12 @@ button span {
     table-layout: fixed;
     width: 100%;
     background: #fff;
-    margin: 1px 0;
+    margin: 6px 0;
+    height: 48px;
+    font-family: 'Bungee', cursive;
+    font-size: 13px;
+    border-radius: 12px;
+    box-shadow: 1px 1px 0 0 rgba(0,0,0,0.1); 
 }
 
 .game .player>* {
@@ -135,6 +160,7 @@ button span {
 
 .game .player i {
     font-size: 24px;
+    line-height: 24px;
     text-align: center;
     width: 48px;
 }
