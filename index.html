@@ -65,7 +65,9 @@ mixpanel.init("d22e352085b6dbf03f521a2ab2734060");</script><!-- end Mixpanel -->
 
     function addTag(tag) {
         window.selectedTags.push(tag);
-        mixpanel.track("Added tag", tag);
+        mixpanel.track("Added tag", {
+          'tag': tag
+        });
         console.log(window.selectedTags);
         // search();
     }
@@ -73,6 +75,7 @@ mixpanel.init("d22e352085b6dbf03f521a2ab2734060");</script><!-- end Mixpanel -->
     function removeLastTag(){
         window.selectedTags = window.selectedTags.splice(0,1)
         console.log(window.selectedTags);
+        mixpanel.track("Go back");
     }
 
     function search() {
@@ -134,14 +137,21 @@ mixpanel.init("d22e352085b6dbf03f521a2ab2734060");</script><!-- end Mixpanel -->
           $(".game > .away-team").append('<div class="player"><i class="mdi mdi-check-circle-outline no"></i><i class="mdi mdi-check-circle sel"></i><span>' + player.name +  " (" + player.position + ")</span></div>");
         });
 
-        $(".game .player").click(function() {
+        $(".game .player").click(function(element) {
             $(this).toggleClass("selected");
+            mixpanel.track("Selected a player", {
+              'player_id': element.id
+            });
+        });
+        mixpanel.track("Started a match", {
+          'match_id': match_id
         });
 
     }
 
     function selectPlayer(element){
       $(this).toggleClass("selected");
+
     }
 
     $(".years > button").click(function() {
