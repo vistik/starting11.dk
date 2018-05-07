@@ -19,6 +19,7 @@
     <div class="canvas">
         <div class="years active">
             <h3>Years</h3>
+            <button onclick="addTag(1994)">USA 1994</button>
             <button onclick="addTag(1998)">France 1998</button>
             <button onclick="addTag(2002)">Japan 2002</button>
             <button onclick="addTag(2006)">Germany 2006</button>
@@ -122,11 +123,11 @@
         $(".game > .away-team-header").append('<span>' + match.away_team + '</span');
 
         match.home_players.forEach(function(player){
-          $(".game > .home-team").append('<div class="player"><i class="mdi mdi-check-circle-outline no"></i><i class="mdi mdi-check-circle sel"></i><span">' + player +  "</span></div>");
+          $(".game > .home-team").append('<div class="player"><i class="mdi mdi-check-circle-outline no"></i><i class="mdi mdi-check-circle sel"></i><span">' + player.name + " (" + player.position + ")</span></div>");
         });
 
         match.away_players.forEach(function(player){
-          $(".game > .away-team").append('<div class="player"><i class="mdi mdi-check-circle-outline no"></i><i class="mdi mdi-check-circle sel"></i><span>' + player +  "</span></div>");
+          $(".game > .away-team").append('<div class="player"><i class="mdi mdi-check-circle-outline no"></i><i class="mdi mdi-check-circle sel"></i><span>' + player.name +  " (" + player.position + ")</span></div>");
         });
 
         $(".game .player").click(function() {
