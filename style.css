@@ -124,12 +124,14 @@ button span:last-of-type {
     text-align: center;
     color: #fff;
     font-size: 16px;
-    padding: 12px;
+    padding: 0 12px;
+    height: 48px;
+    line-height: 48px;
   
 }
 
-.game>.header span {
-    display: block;
+.game>.header span{
+ padding: 0 4px;
 }
 
 .game>.home-team-header,
