@@ -11,7 +11,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <link href="https://fonts.googleapis.com/css?family=Bungee|Bungee+Hairline|Bungee+Inline|Bungee+Shade" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Dosis:400,600" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.materialdesignicons.com/2.3.54/css/materialdesignicons.min.css">
+    <link rel="stylesheet" href="http://cdn.materialdesignicons.com/2.4.85/css/materialdesignicons.min.css">
     <!-- start Mixpanel --><script type="text/javascript">(function(e,a){if(!a.__SV){var b=window;try{var c,l,i,j=b.location,g=j.hash;c=function(a,b){return(l=a.match(RegExp(b+"=([^&]*)")))?l[1]:null};g&&c(g,"state")&&(i=JSON.parse(decodeURIComponent(c(g,"state"))),"mpeditor"===i.action&&(b.sessionStorage.setItem("_mpcehash",g),history.replaceState(i.desiredHash||"",e.title,j.pathname+j.search)))}catch(m){}var k,h;window.mixpanel=a;a._i=[];a.init=function(b,c,f){function e(b,a){var c=a.split(".");2==c.length&&(b=b[c[0]],a=c[1]);b[a]=function(){b.push([a].concat(Array.prototype.slice.call(arguments,
 0)))}}var d=a;"undefined"!==typeof f?d=a[f]=[]:f="mixpanel";d.people=d.people||[];d.toString=function(b){var a="mixpanel";"mixpanel"!==f&&(a+="."+f);b||(a+=" (stub)");return a};d.people.toString=function(){return d.toString(1)+".people (stub)"};k="disable time_event track track_pageview track_links track_forms register register_once alias unregister identify name_tag set_config reset opt_in_tracking opt_out_tracking has_opted_in_tracking has_opted_out_tracking clear_opt_in_out_tracking people.set people.set_once people.unset people.increment people.append people.union people.track_charge people.clear_charges people.delete_user".split(" ");
 for(h=0;h<k.length;h++)e(d,k[h]);a._i.push([b,c,f])};a.__SV=1.2;b=e.createElement("script");b.type="text/javascript";b.async=!0;b.src="undefined"!==typeof MIXPANEL_CUSTOM_LIB_URL?MIXPANEL_CUSTOM_LIB_URL:"file:"===e.location.protocol&&"//cdn.mxpnl.com/libs/mixpanel-2-latest.min.js".match(/^\/\//)?"https://cdn.mxpnl.com/libs/mixpanel-2-latest.min.js":"//cdn.mxpnl.com/libs/mixpanel-2-latest.min.js";c=e.getElementsByTagName("script")[0];c.parentNode.insertBefore(b,c)}})(document,window.mixpanel||[]);
@@ -22,14 +22,14 @@ mixpanel.init("d22e352085b6dbf03f521a2ab2734060");</script><!-- end Mixpanel -->
     <script src="data.js"></script>
     <div class="canvas">
         <div class="years active">
-            <h3>Years</h3>
-            <button onclick="addTag(1990)">Italy 1990</button>
-            <button onclick="addTag(1994)">USA 1994</button>
-            <button onclick="addTag(1998)">France 1998</button>
-            <button onclick="addTag(2002)">Japan 2002</button>
-            <button onclick="addTag(2006)">Germany 2006</button>
-            <button onclick="addTag(2010)">South Africa 2010</button>
-            <button onclick="addTag(2014)">Brazil 2014</button>
+            <h3>World Cups</h3>
+            <button onclick="addTag(1990)"><img src="italy.png"/>Italy 1990</button>
+            <button onclick="addTag(1994)"><img src="usa.png"/>USA 1994</button>
+            <button onclick="addTag(1998)"><img src="france.png"/>France 1998</button>
+            <button onclick="addTag(2002)"><img src="japan.png"/>Japan 2002</button>
+            <button onclick="addTag(2006)"><img src="germany.png"/>Germany 2006</button>
+            <button onclick="addTag(2010)"><img src="south-africa.png"/>South Africa 2010</button>
+            <button onclick="addTag(2014)"><img src="brazil.png"/>Brazil 2014</button>
         </div>
         <div class="rounds">
             <h3><i class="mdi mdi-chevron-left"></i>Rounds</h3>
@@ -132,11 +132,11 @@ mixpanel.init("d22e352085b6dbf03f521a2ab2734060");</script><!-- end Mixpanel -->
         $(".game > .away-team-header").append('<span>' + match.away_team + '</span');
 
         match.home_players.forEach(function(player){
-          $(".game > .home-team").append('<div class="player"><i class="mdi mdi-check-circle-outline no"></i><i class="mdi mdi-check-circle sel"></i><span">' + player.name + " (" + player.position + ")</span></div>");
+          $(".game > .home-team").append('<div class="player"><span><img src="player.png"></span><span>' + player.name + "</span><span>" + player.position + "</span></div>");
         });
 
         match.away_players.forEach(function(player){
-          $(".game > .away-team").append('<div class="player"><i class="mdi mdi-check-circle-outline no"></i><i class="mdi mdi-check-circle sel"></i><span>' + player.name +  " (" + player.position + ")</span></div>");
+         $(".game > .away-team").append('<div class="player"><span><img src="player.png"></span><span>' + player.name + "</span><span>" + player.position + "</span></div>");
         });
 
         $(".game .player").click(function(element) {
