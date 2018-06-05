@@ -117,6 +117,37 @@ button img {
     left: 12px;
 }
 
+.canvas.green {
+     background: #2bcbba;
+}
+
+.front {
+    text-align: center;
+    color: #fff;
+}
+
+.front > button {
+    position: relative;
+    top: 30%;
+    width: 150px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.front > .btn-rules {
+    position: absolute;
+    width: 95%;
+    bottom: 48px;
+    text-align: center;
+}
+
+.rules h2 {
+    text-align: center;
+}
+.rules p {
+    font-weight: lighter;
+}
+
 .games>div {
 
 }

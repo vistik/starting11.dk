@@ -20,9 +20,19 @@ mixpanel.init("d22e352085b6dbf03f521a2ab2734060");</script><!-- end Mixpanel -->
 
 <body>
     <script src="data.js"></script>
-    <div class="canvas">
-        <div class="years active">
-            <h3>World Cups</h3>
+    <div class="canvas green">
+        <div class="front active">
+            <h2>starting11</h2>
+            <button>Choose game</button>
+            <div class="btn-rules">Rules below<br><i class="mdi mdi-arrow-down"></i></div>
+        </div>
+        <div class="rules active">
+            <h2>Rules</h2>
+            <p>Spillet virker bedst med minimum 3 personer, som ved noget om fodbold.</p>
+           
+        </div>
+        <div class="years">
+            <h3><i class="mdi mdi-chevron-left"></i>World Cups</h3>
             <button onclick="addTag(1990)"><img src="italy.png"/>Italy 1990</button>
             <button onclick="addTag(1994)"><img src="usa.png"/>USA 1994</button>
             <button onclick="addTag(1998)"><img src="france.png"/>France 1998</button>
@@ -155,6 +165,13 @@ mixpanel.init("d22e352085b6dbf03f521a2ab2734060");</script><!-- end Mixpanel -->
       $(this).toggleClass("selected");
 
     }
+
+    $(".front > button").click(function() {
+        $(this).parent().removeClass("active");
+        $(".canvas").removeClass("green");
+        $(".rules").removeClass("active");
+        $(".years").addClass("active");
+    });
 
     $(".years > button").click(function() {
         $(this).parent().removeClass("active");
