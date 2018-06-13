@@ -11,6 +11,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <link href="https://fonts.googleapis.com/css?family=Bungee|Bungee+Hairline|Bungee+Inline|Bungee+Shade" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Dosis:400,600" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Titillium+Web:300,400,600" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.materialdesignicons.com/2.4.85/css/materialdesignicons.min.css">
     <!-- start Mixpanel --><script type="text/javascript">(function(e,a){if(!a.__SV){var b=window;try{var c,l,i,j=b.location,g=j.hash;c=function(a,b){return(l=a.match(RegExp(b+"=([^&]*)")))?l[1]:null};g&&c(g,"state")&&(i=JSON.parse(decodeURIComponent(c(g,"state"))),"mpeditor"===i.action&&(b.sessionStorage.setItem("_mpcehash",g),history.replaceState(i.desiredHash||"",e.title,j.pathname+j.search)))}catch(m){}var k,h;window.mixpanel=a;a._i=[];a.init=function(b,c,f){function e(b,a){var c=a.split(".");2==c.length&&(b=b[c[0]],a=c[1]);b[a]=function(){b.push([a].concat(Array.prototype.slice.call(arguments,
 0)))}}var d=a;"undefined"!==typeof f?d=a[f]=[]:f="mixpanel";d.people=d.people||[];d.toString=function(b){var a="mixpanel";"mixpanel"!==f&&(a+="."+f);b||(a+=" (stub)");return a};d.people.toString=function(){return d.toString(1)+".people (stub)"};k="disable time_event track track_pageview track_links track_forms register register_once alias unregister identify name_tag set_config reset opt_in_tracking opt_out_tracking has_opted_in_tracking has_opted_out_tracking clear_opt_in_out_tracking people.set people.set_once people.unset people.increment people.append people.union people.track_charge people.clear_charges people.delete_user".split(" ");
@@ -22,26 +23,29 @@ mixpanel.init("d22e352085b6dbf03f521a2ab2734060");</script><!-- end Mixpanel -->
     <script src="data.js"></script>
     <div class="canvas green">
         <div class="front active">
-            <h2>starting11</h2>
-            <button>Choose game</button>
+            <h2>starting<span>11</span></h2>
+            <button>Start a game</button>
             <div class="btn-rules">Rules below<br><i class="mdi mdi-arrow-down"></i></div>
         </div>
         <div class="rules active">
             <h2>Rules</h2>
             <p>Starting11 is a simple but difficult quiz game!
-            This is the original rules, but you are free to make your own :)
+            This is the original rules, but you are free to make your own :)</p>
             
-            <h3> The basics</h3>
-            - The game consist of two teams and one game master<br/>
-            - The game master will be responsible for checking off the teams answers<br/>
-            - Each team can consist of multiple members or you can have more the 2 teams<br/>
+            <h5> The basics</h5>
+            <ul>
+                <li>The game consist of two teams and one game master</li>
+                <li>The game master will be responsible for checking off the teams answers</li>
+                <li>Each team can consist of multiple members or you can have more the 2 teams</li>
+            </ul>
             
-            <h3>How to play</h3>
-            - Select a World Cup, select a round and select a game<br/>
-            - Starting with the first team they now have to guess a starting player from any of teams<br/>
-            - Then the second team has to guess a starting player<br/>
-            - The first team that misses twice have lost the game and will buy a round of beers!<br/>
-            </p>
+            <h5>How to play</h5>
+            <ul>
+                <li>Select a World Cup, select a round and select a game</li>
+                <li>Starting with the first team they now have to guess a starting player from any of teams</li>
+                <li>Then the second team has to guess a starting player</li>
+                <li>The first team that misses twice have lost the game and will buy a round of beers!</li>
+          </ul>
            
         </div>
         <div class="years">

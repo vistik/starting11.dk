@@ -29,8 +29,52 @@ html {
     width: 100%;
     margin: 0;
     padding: 0;
-    font-family: 'Dosis', sans-serif;
+    font-family: 'Titillium Web', sans-serif;
     font-weight: 600;
+ 
+}
+
+body {
+       background: rgba(209, 216, 224, 0.2);
+}
+
+h2 {
+
+     font-family: 'Bungee Inline', cursive;
+     font-weight: 100;
+       color: rgba(0,0,0,0.7);
+
+}
+
+h2 span{
+
+     font-family: 'Bungee Shade', cursive;
+     font-weight: 100;
+    font-size: 91px;
+    display: block;
+
+ 
+}
+
+h5 {
+    padding: 12px 0 0px 24px;
+    margin:0;
+}
+
+p {
+    padding: 0 24px;
+}
+
+ul {
+     
+     padding: 0 24px;
+     list-style-type: none;
+ 
+}
+
+ul li {
+    font-weight: lighter;
+    padding: 6px 0;
 }
 
 button {
@@ -44,7 +88,7 @@ button {
     padding: 0 12px;
     text-transform: capitalize;
     text-align: left;
-    font-family: 'Dosis', sans-serif;
+    font-family: 'Titillium Web', sans-serif;
     font-weight: 600;
     font-size: 16px;
     border-radius: 12px;
@@ -56,7 +100,7 @@ button {
 
 button span:first-of-type {
     display: inline-block;
-    width: 200px;
+   
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -66,6 +110,8 @@ button span:first-of-type {
 button span:last-of-type {
     float: right;
     font-size: 12px;
+    width: 50px;
+    text-align: right;
 }
 
 button img {
@@ -79,7 +125,7 @@ button img {
 .canvas {
     width: 100%;
     height: 100%;
-    background: rgba(209, 216, 224, 0.2);
+
     padding-top: 48px;
 }
 
@@ -89,7 +135,6 @@ button img {
 
 .canvas>div.active {
     display: block;
-    overflow: auto;
     height: 100%;
     padding: 12px;
 }
@@ -119,6 +164,9 @@ button img {
 
 .canvas.green {
      background: #2bcbba;
+    /* background-image: url("foto.jpg"); */
+     background-origin: center;
+     background-size: cover;
 }
 
 .front {
@@ -181,12 +229,13 @@ button img {
     font-family: 'Bungee', cursive;
     opacity: 0.5;
     font-size: 11px;
+    margin-top: 12px;
 }
 
 .game > .home-team, 
 .game > .away-team {
     position: relative;
-    height: 80%;
+    
 }
 
 .game .player {
@@ -197,7 +246,7 @@ button img {
     height: 9%;
     font-size: 14px;
     border-radius: 12px;
-        box-shadow: 0px 0px 2px 0 rgba(0,0,0,0.15); 
+    box-shadow: 0px 0px 2px 0 rgba(0,0,0,0.15); 
     padding: 0 12px 0 0;
 }
 
@@ -217,18 +266,19 @@ button img {
 }
 
 .game .player span:first-of-type {
- width: 48px;
+    width: 48px;
+    height: 40px;
 }
 
 .game .player span:first-of-type img {
-
- height: 2.3em;
+    height: 2.3em;
 }
 
 .game .player span:last-of-type {
     text-align: right;
     opacity: 0.7;
     font-size: 0.9em;
+    width: 100px;
 }
 
 
