@@ -201,6 +201,14 @@ mixpanel.init("d22e352085b6dbf03f521a2ab2734060");</script><!-- end Mixpanel -->
         addGames();
     });
 
+    $(".years .mdi-chevron-left").click(function() {
+        $(this).parent().parent().removeClass("active");
+        $(".front").addClass("active");
+        $(".rules").addClass("active");
+        $(".canvas").addClass("green");
+      
+    });
+
 
     $(".rounds .mdi-chevron-left").click(function() {
         $(this).parent().parent().removeClass("active");
