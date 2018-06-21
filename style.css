@@ -227,7 +227,7 @@ button img {
 .game>.away-team-header {
     display: block;
     padding: 24px 0 6px 0;
-    font-family: 'Bungee', cursive;
+    font-family: 'Bungee Inline', cursive;
     opacity: 0.5;
     font-size: 11px;
     margin-top: 12px;
